@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><ListRecords><record><header><identifier>oai:arXiv.org:gr-qc/9210004</identifier></header><metadata><title>The Spacetime Approach to Quantum Mechanics</title><description>  Feynman's sum-over-histories formulation of quantum mechanics is reviewed as
+an independent statement of quantum theory in spacetime form. It is different
+from the usual Schr\&quot;odinger-Heisenberg formulation that utilizes states on
+spacelike surfaces because it assigns probabilities to different sets of
+alternatives. Sum-over-histories quantum mechanics can be generalized to deal
+with spacetime alternatives that are not &quot;at definite moments of time&quot;. An
+example in field theory is the set of alternative ranges of values of a field
+averaged over a spacetime region. An example in particle mechanics is the set
+of the alternatives defined by whether a particle never crosses a fixed
+spacetime region or crosses it at least once. The general notion of a set of
+spacetime alternatives is a partition (coarse-graining) of the histories into
+an exhaustive set of exclusive classes. With this generalization the
+sum-over-histories formulation can be said to be in fully spacetime form with
+dynamics represented by path integrals over spacetime histories and
+alternatives defined as spacetime partitions of these histories. When
+restricted to alternatives at definite moments of times this generalization is
+equivalent to Schr\&quot;odinger-Heisenberg quantum mechanics. However, the quantum
+mechanics of more general spacetime alternatives does not have an equivalent
+Schr\&quot;odinger-Heisenberg formulation. We suggest that, in the quantum theory of
+gravity, the general notion of &quot;observable&quot; is supplied by diffeomorphism
+invariant partitions of spacetime metrics and matter field configurations. By
+generalizing the usual alternatives so as to put quantum theory in fully
+spacetime form we may be led to a covariant generalized quantum mechanics of
+spacetime free from the problem of time.
+</description><date>1992-10-07</date></metadata></record><record><header><identifier>oai:arXiv.org:gr-qc/9210006</identifier></header><metadata><title>The Quantum Mechanics of Closed Systems</title><description>  A pedagogical introduction is given to the quantum mechanics of closed
+systems, most generally the universe as a whole. Quantum mechanics aims at
+predicting the probabilities of alternative coarse-grained time histories of a
+closed system. Not every set of alternative coarse-grained histories that can
+be described may be consistently assigned probabilities because of quantum
+mechanical interference between individual histories of the set. In the quantum
+mechanics of closed systems, containing both observer and observed,
+probabilities are assigned to those sets of alternative histories for which
+there is negligible interference between individual histories as a consequence
+of the system's initial condition and dynamics. Such sets of histories are said
+to decohere. Typical mechanisms of decoherence that are widespread in our
+universe are illustrated. Copenhagen quantum mechanics is an approximation to
+the more general quantum framework of closed subsystems. It is appropriate when
+there is an approximately isolated subsystem that is a participant in a
+measurement situation in which (among other things) the decoherence of
+alternative registrations of the apparatus can be idealized as exact. Since the
+quantum mechanics of closed systems does not posit the existence of the
+quasiclassical domain of everyday experience, the domain of the approximate
+aplicability of classical physics must be explained. We describe how a
+quasiclassical domain described by averages of densities of approximately
+conserved quantities could be an emergent feature of an initial condition of
+the universe that implies the approximate classical behavior of spacetime on
+accessible scales.
+</description><date>1992-10-12</date></metadata></record><record><header><identifier>oai:arXiv.org:gr-qc/9210010</identifier></header><metadata><title>Classical Equations for Quantum Systems</title><description>  The origin of the phenomenological deterministic laws that approximately
+govern the quasiclassical domain of familiar experience is considered in the
+context of the quantum mechanics of closed systems such as the universe as a
+whole. We investigate the requirements for coarse grainings to yield decoherent
+sets of histories that are quasiclassical, i.e. such that the individual
+histories obey, with high probability, effective classical equations of motion
+interrupted continually by small fluctuations and occasionally by large ones.
+We discuss these requirements generally but study them specifically for coarse
+grainings of the type that follows a distinguished subset of a complete set of
+variables while ignoring the rest. More coarse graining is needed to achieve
+decoherence than would be suggested by naive arguments based on the uncertainty
+principle. Even coarser graining is required in the distinguished variables for
+them to have the necessary inertia to approach classical predictability in the
+presence of the noise consisting of the fluctuations that typical mechanisms of
+decoherence produce. We describe the derivation of phenomenological equations
+of motion explicitly for a particular class of models. Probabilities of the
+correlations in time that define equations of motion are explicitly considered.
+Fully non-linear cases are studied. Methods are exhibited for finding the form
+of the phenomenological equations of motion even when these are only distantly
+related to those of the fundamental action. The demonstration of the connection
+between quantum-mechanical causality and causalty in classical phenomenological
+equations of motion is generalized. The connections among decoherence, noise,
+dissipation, and the amount of coarse graining necessary to achieve classical
+predictability are investigated quantitatively.
+</description><date>1992-10-20</date></metadata></record></ListRecords>
