@@ -23,7 +23,7 @@ The metadata consists of the following entries:
 #################################################################################################
 from xml.dom import minidom
 from xml.dom.minidom import Document
-from itertools import chain
+from itertools import chain # don't think I need chain anymore, delete
 from datetime import datetime
 import time
 ## throwing down some code I don't yet understand regarding non-ascii characters in the database

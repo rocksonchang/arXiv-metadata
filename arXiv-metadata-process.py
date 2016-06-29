@@ -1,5 +1,5 @@
 '''
-arXiv-metadata-process.py --- 26 June 2016
+arXiv-metadata-analyze.py --- 29 June 2016
 -------------------------------------------------
 This script has been coded for Python3.
 
@@ -23,16 +23,16 @@ The metadata consists of the following entries:
 #################################################################################################
 #################################################################################################
 from xml.dom import minidom
-#from xml.dom.minidom import Document
-from itertools import chain
+#from xml.dom.minidom import Document # do I need this?
+from itertools import chain  # do I need this?
+import itertools  # do I need this?
 from datetime import datetime
-import itertools
 import time
 #import numpy as np
 from math import ceil
 ## Using some simple functions from http://programminghistorian.org/lessons/counting-frequencies
 import obo
-import pickle
+import pickle # to export a python structure
 ## handling of non-ascii characters in the database
 # http://chase-seibert.github.io/blog/2014/01/12/python-unicode-console-output.html
 import sys
@@ -51,7 +51,7 @@ titles=[]
 descriptions=[]
 dates=[]
 
-years=range(2004,2005)
+years=range(1992,2017)
 NRecYear=[0]*(len(years))	
 for x in range(len(years)):	
 	fname ='arXiv-meta-{}.xml'.format(years[x])	
@@ -119,7 +119,7 @@ for x in range(len(years)):
 		desc_dictionary = obo.wordListToFreqDict(desc_wordlist)
 		desc_sorteddict = obo.sortFreqDict(desc_dictionary)
 
-		topWords.append(desc_sorteddict[:300])
+		topWords.append(desc_sorteddict[:500])
 		
 		print ('Year: {}; Quarter: Q{}; Num. entries: {}'.format(years[x],q+1,NRecQuarter[4*(date.year-year0)+q]))				
 		#for s in desc_sorteddict[:10]: 	print(str(s))
@@ -135,6 +135,7 @@ with open('obj/'+ 'topWords' + '.pkl', 'wb') as f:
 #################################################################################################
 #################################################################################################
 ## Word counting
+'''
 print ('Tracking occurance of a particular word...')
 N=[0]*len(topWords)
 for q in range(len(topWords)):
@@ -157,3 +158,4 @@ for q in range(len(topWords)):
 	print('\n')	
 
 print(N)
+'''

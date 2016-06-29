@@ -87,8 +87,8 @@ def stripTags(pageContents):
 def stripNonAlphaNum(text):
    
     from HTMLParser import HTMLParser
-    h = HTMLParser()
-    text2=h.unescape(text).encode()
+    h = HTMLParser()    
+    text2=h.unescape(text).encode('ascii','ignore')
     
     REMOVE_LIST = ['\\"','\\it']
     REPLACE_LIST = ['-']

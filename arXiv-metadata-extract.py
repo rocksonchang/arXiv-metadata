@@ -20,11 +20,15 @@ Some future improvements:
 - pull out information on how many total records are available.
 - error handling in the event of OAI2 server complaints
 """
-
+#################################################################################################
+#################################################################################################
 import urllib
 import time
 from itertools import chain
 from xml.dom import minidom
+
+#################################################################################################
+#################################################################################################
 
 ## blocks of data based on metadata update date
 #fname = 'arXiv-meta-block1.xml'; queryDate='from=2007-01-01&until=2009-12-31';
@@ -32,6 +36,8 @@ from xml.dom import minidom
 #fname = 'arXiv-meta-block3.xml'; queryDate='from=2013-01-01&until=2015-12-31';
 #fname = 'arXiv-meta-block4.xml'; queryDate='from=2016-01-01&until=2018-12-31';
 
+#################################################################################################
+#################################################################################################
 ## initial http request to OA server 
 url = 'http://export.arxiv.org/oai2?verb=ListRecords&set=physics:quant-ph&metadataPrefix=oai_dc&{}'.format(queryDate)
 ## setup XML file, write header
@@ -60,11 +66,14 @@ while token != '':
 	## wait 20 seconds to keep OAI2 happy
 	time.sleep(20)
 
+#################################################################################################
+#################################################################################################
 ## write XML footer and close file
 f.write('</ListRecords>\n')
 f.close()
 
-
+#################################################################################################
+#################################################################################################
 ## parse XML data and test some outputs
 data = minidom.parse(fname)
 titles = data.getElementsByTagName("dc:title")
