@@ -18,6 +18,7 @@ The metadata consists of the following entries:
 #fname = 'arXiv-meta-block4.xml'; # from 2016-01-01 to 2018-12-31 
 
 '''
+#!/usr/bin/python3.5
 
 #################################################################################################
 #################################################################################################
@@ -31,26 +32,27 @@ import time
 from math import ceil
 ## Using some simple functions from http://programminghistorian.org/lessons/counting-frequencies
 import obo
+import pickle
 ## handling of non-ascii characters in the database
 # http://chase-seibert.github.io/blog/2014/01/12/python-unicode-console-output.html
 import sys
 import codecs
 sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
-
+print('\n')
 
 #################################################################################################
 #################################################################################################
 ## load data
+print ('Loading XML data...')
 #creators=[]
 addys=[]
 titles=[]
 descriptions=[]
 dates=[]
 
-years=range(1992,1999)
+years=range(2004,2005)
 NRecYear=[0]*(len(years))	
-
 for x in range(len(years)):	
 	fname ='arXiv-meta-{}.xml'.format(years[x])	
 	## parse XML data
@@ -77,66 +79,32 @@ for x in range(len(years)):
 		descriptions.append(rec.getElementsByTagName("description")[0].firstChild.data)
 		dates.append(rec_dates[0]) # take date first submitted as date.
 	print ('Loading year: {}; Num. entries: {}'.format(years[x],NRecYear[x]))
-
-
 ## output some stuff to check	
 #print('\n')		
 #for i in range(len(titles)): print(titles[i]);	print(dates[i]); print(descriptions[i]); print('\n');
-
-
-#################################################################################################
-#################################################################################################
-## yearly blocks
-'''
 print('\n')
-NRec=sum(NRecYear)
-NRecRunning=0
-for x in range(len(years)):	
-	fulltextYear=''	
-	for i in range(NRecYear[x]):
-		rec=i+NRecRunning				
-		desc=descriptions[rec]
-		title=titles[rec]
-		text=desc+title
-		fulltextYear=fulltextYear+text	
-	NRecRunning=NRecRunning+NRecYear[x]
-
-	
-
-	desc_fullwordlist = obo.stripNonAlphaNum(fulltextYear)
-	desc_wordlist = obo.removeStopwords(desc_fullwordlist,obo.stopwords)	
-	desc_dictionary = obo.wordListToFreqDict(desc_wordlist)
-	desc_sorteddict = obo.sortFreqDict(desc_dictionary)
-	
-	print ('Year: {}; Num. entries: {}'.format(years[x],NRecYear[x]))
-
-	#x = itertools.islice(desc_sorteddict.items(), 0, 10)
-
-	for s in desc_sorteddict[:30]: 	
-		print(str(s))
-	print('\n')
-'''
 
 #################################################################################################
 #################################################################################################
 ## Quarterly blocks
-print('\n')
+print ('Extracting text, identifying most frequently used words each quarter...')
 NRec=sum(NRecYear)
-top100=[]
+topWords=[]
 NRecRunning=0
-year0=1992
-NRecQuarter=[0]*25*4
+year0=years[0]
+NRecQuarter=[0]*len(years)*4
+
 for x in range(len(years)):	
 	fulltextQuarter=['']*4
 	for i in range(NRecYear[x]):
-		rec=i+NRecRunning				
+		rec=i+NRecRunning						
 		desc=descriptions[rec]
 		
 		title=titles[rec]
 		text=title+desc
 
 		date=datetime.strptime(dates[rec],'%Y-%m-%d')		
-		Q=int(ceil(date.month/3)-1)
+		Q=int(ceil(date.month/3.)-1)
 		ind = 4*(date.year-year0)+Q
 		NRecQuarter[ind]+=1
 
@@ -151,31 +119,41 @@ for x in range(len(years)):
 		desc_dictionary = obo.wordListToFreqDict(desc_wordlist)
 		desc_sorteddict = obo.sortFreqDict(desc_dictionary)
 
-		top100.append(desc_sorteddict[:300])
-		'''
-		print ('Year: {}; Quarter: Q{}; Num. entries: {}'.format(years[x],q+1,len(fulltextQuarter[q])))
-		for s in desc_sorteddict[:40]: 	print(str(s))
-		print('\n')
-		'''
+		topWords.append(desc_sorteddict[:300])
+		
+		print ('Year: {}; Quarter: Q{}; Num. entries: {}'.format(years[x],q+1,NRecQuarter[4*(date.year-year0)+q]))				
+		#for s in desc_sorteddict[:10]: 	print(str(s))
+		#print('\n')
+print('\n')
+	
+#################################################################################################
+#################################################################################################
+## Pickle?
+with open('obj/'+ 'topWords' + '.pkl', 'wb') as f:
+	pickle.dump(topWords, f, pickle.HIGHEST_PROTOCOL)
 
-#with open('obj/'+ name + '.pkl', 'wb') as f:
-	#pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
-
-year0=1992
-N=[0]*len(top100)
-for q in range(len(top100)):
+#################################################################################################
+#################################################################################################
+## Word counting
+print ('Tracking occurance of a particular word...')
+N=[0]*len(topWords)
+for q in range(len(topWords)):
 	year  = year0  + int(ceil((q+1.)/4)-1)
 	print('Year: {}; Quarter: Q{}; Num. entries: {}').format(year, q%4+1, NRecQuarter[q])
-	top100quarter=top100[q]
-	for s in top100quarter[:10]: print(str(s))
-	print('\n')
+	topWordsquarter=topWords[q]
+	for s in topWordsquarter[:10]: print(str(s))	
 
-	dictQuarter=dict(top100quarter)
-	invDict = {v: k for k, v in dictQuarter.items()}
-	
-	word='bose'.lower()
-	
+	# topWordsquarter is a list of tuples [(key, value)..]
+	# need to reverse, then build dictionary
+	topWordsquarterReversed=[]
+	for t in topWordsquarter:
+		topWordsquarterReversed.append(tuple(reversed(t)))	
+	invDict=dict(topWordsquarterReversed)
+		
+	word='mechanics'.lower()
 	if word in invDict: N[q] = invDict.get(word); 
 	else: N[q]=0
+	
+	print('\n')	
 
 print(N)
