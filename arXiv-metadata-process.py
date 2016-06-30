@@ -119,7 +119,7 @@ for x in range(len(years)):
 		desc_dictionary = obo.wordListToFreqDict(desc_wordlist)
 		desc_sorteddict = obo.sortFreqDict(desc_dictionary)
 
-		topWords.append(desc_sorteddict[:500])
+		topWords.append(desc_sorteddict[:5000])
 		
 		print ('Year: {}; Quarter: Q{}; Num. entries: {}'.format(years[x],q+1,NRecQuarter[4*(date.year-year0)+q]))				
 		#for s in desc_sorteddict[:10]: 	print(str(s))
@@ -130,10 +130,10 @@ print('\n')
 #################################################################################################
 ## Pickle?
 ## Pickle?
-#with open('obj/'+ 'NRecQuarter' + '.pkl', 'wb') as f:
-	#pickle.dump(NRecQuarter, f, pickle.HIGHEST_PROTOCOL)
-#with open('obj/'+ 'topWords' + '.pkl', 'wb') as f:
-	#pickle.dump(topWords, f, pickle.HIGHEST_PROTOCOL)
+with open('obj/'+ 'NRecQuarter' + '.pkl', 'wb') as f:
+	pickle.dump(NRecQuarter, f, pickle.HIGHEST_PROTOCOL)
+with open('obj/'+ 'topWords5k' + '.pkl', 'wb') as f:
+	pickle.dump(topWords, f, pickle.HIGHEST_PROTOCOL)
 
 #################################################################################################
 #################################################################################################

@@ -31,7 +31,7 @@
 			"file": "arXiv-metadata-extract.py",
 			"settings":
 			{
-				"buffer_size": 3241,
+				"buffer_size": 4220,
 				"line_ending": "Windows"
 			}
 		},
@@ -39,7 +39,7 @@
 			"file": "arXiv-metadata-reorder.py",
 			"settings":
 			{
-				"buffer_size": 6324,
+				"buffer_size": 6367,
 				"line_ending": "Windows"
 			}
 		},
@@ -47,32 +47,16 @@
 			"file": "arXiv-metadata-process.py",
 			"settings":
 			{
-				"buffer_size": 5635,
+				"buffer_size": 5767,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Rockson3/myblog/projects/helium-IP.html",
+			"file": "arXiv-metadata-analyze.py",
 			"settings":
 			{
-				"buffer_size": 1758,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Rockson3/myblog/projects/fringe-reduction.html",
-			"settings":
-			{
-				"buffer_size": 2312,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Rockson3/myblog/projects/quantum-collision.html",
-			"settings":
-			{
-				"buffer_size": 1018,
-				"line_ending": "Unix"
+				"buffer_size": 2751,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -112,10 +96,17 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Rockson3/Python3p0/arXiv-metadata/obo.py",
+		"/C/Users/Rockson3/Python3p0/arXiv-metadata/arXiv-meta-2012.xml",
+		"/C/Users/Rockson3/Python3p0/arXiv-metadata/arXiv-meta-2014.xml",
+		"/C/Users/Rockson3/Python3p0/arXiv-metadata/arXiv-meta-2004.xml",
+		"/C/Users/Rockson3/Python3p0/arXiv-metadata/obj/topWords.pkl",
+		"/C/Users/Rockson3/myblog/projects/helium-IP.html",
+		"/C/Users/Rockson3/myblog/projects/fringe-reduction.html",
+		"/C/Users/Rockson3/myblog/projects/quantum-collision.html",
 		"/C/Users/Rockson3/myblog/_config.yml",
 		"/C/Users/Rockson3/myblog/_sass/_base.scss",
 		"/C/Users/Rockson3/myblog/css/main.scss",
-		"/C/Users/Rockson3/Python3p0/arXiv-metadata/obo.py",
 		"/C/Users/Rockson3/Python3p0/arXiv-metadata/arXiv-meta-1998.xml",
 		"/C/Users/Rockson3/myblog/cv.md",
 		"/C/Users/Rockson3/Python3p0/arXiv-metadata/arXiv-meta-1999.xml",
@@ -152,12 +143,9 @@
 		"/C/Users/Rockson3/Python3p0/arXiv-metadata/xmltest3.xml",
 		"/C/Users/Rockson3/Python3p0/arXiv-metadata/xmltest2.xml",
 		"/C/Users/Rockson3/myblog/_sass/_layout.scss",
-		"/C/Users/Rockson3/myblog/projects/fringe-reduction.html",
 		"/C/Users/Rockson3/myblog/projects/effective-mass.html",
-		"/C/Users/Rockson3/myblog/projects/helium-IP.html",
 		"/C/Users/Rockson3/myblog/js/latexit.js",
 		"/C/Users/Rockson3/myblog/projects/helium.html",
-		"/C/Users/Rockson3/myblog/projects/quantum-collision.html",
 		"/C/Users/Rockson3/Downloads/bleau.json",
 		"/C/Users/Rockson3/Downloads/scatter_demo2.py",
 		"/C/Users/Rockson3/myblog/_includes/header.html",
@@ -194,7 +182,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -208,6 +196,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"chain",
+			"minidom",
+			"iter",
+			"chain",
+			"<",
+			"leq",
+			"&",
+			"u22",
+			"22",
+			"\\u22",
+			"100",
+			"top100",
 			"bose",
 			"Time",
 			"time",
@@ -261,7 +261,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -270,15 +270,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3241,
+						"buffer_size": 4220,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2091,
-								2179
+								4149,
+								4154
 							]
 						],
 						"settings":
@@ -287,10 +287,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 670.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -299,78 +299,20 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6324,
+						"buffer_size": 6367,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3521,
-								3550
+								1818,
+								1818
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1018.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "arXiv-metadata-process.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5635,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								522,
-								522
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Rockson3/myblog/projects/helium-IP.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1758,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1088,
-								1088
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -381,58 +323,58 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/C/Users/Rockson3/myblog/projects/fringe-reduction.html",
+					"buffer": 2,
+					"file": "arXiv-metadata-process.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2312,
+						"buffer_size": 5767,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2289,
-								2289
+								4662,
+								4662
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/Python/Python.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 199.0,
+						"translation.y": 1218.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/C/Users/Rockson3/myblog/projects/quantum-collision.html",
+					"buffer": 3,
+					"file": "arXiv-metadata-analyze.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1018,
+						"buffer_size": 2751,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								524,
-								524
+								2388,
+								2388
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/Python/Python.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 344.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -443,7 +385,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 22.0
 	},
 	"input":
 	{
@@ -480,7 +422,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 42.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":

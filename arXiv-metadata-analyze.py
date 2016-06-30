@@ -41,7 +41,7 @@ print('\n')
 #################################################################################################
 ## Pickle?
 NRecQuarter = pickle.load( open( "obj/NRecQuarter.pkl", "rb" ) )
-topWords = pickle.load( open( "obj/topWords.pkl", "rb" ) )
+topWords = pickle.load( open( "obj/topWords5k.pkl", "rb" ) )
 
 #################################################################################################
 #################################################################################################
@@ -53,7 +53,7 @@ for q in range(len(topWords)):
 	year  = year0  + int(ceil((q+1.)/4)-1)
 	print('Year: {}; Quarter: Q{}; Num. entries: {}').format(year, q%4+1, NRecQuarter[q])
 	topWordsquarter=topWords[q]
-	for s in topWordsquarter[-10:-1]: print(str(s))	
+	#for s in topWordsquarter[-10:-1]: print(str(s))	
 
 	# topWordsquarter is a list of tuples [(key, value)..]
 	# need to reverse, then build dictionary
@@ -62,13 +62,28 @@ for q in range(len(topWords)):
 		topWordsquarterReversed.append(tuple(reversed(t)))	
 	invDict=dict(topWordsquarterReversed)
 		
-	word='engineering'.lower()	
-	if word in invDict: N[q] = invDict.get(word); 
-	else: N[q]=0
-	
-	print('\n')	
+	#word='lattice'.lower()		
+	#if word in invDict: N[q] = invDict.get(word); 
+	#else: N[q]=0
+	wordList=['bose','einstein','condensate']
+	wordList=['synthetic','magnetic','field']
+	wordList=['bose','hubbard']
+	wordList=['degenerate','fermi','gas']
+	wordList=['feshbach','resonance']
+	wordList=['trapped', 'ions']
+	wordList=['single','site','microscope']
+	wordList=['anderson','localization']
+	wordList=['bloch','oscillation']
+	wordList=['phase','transition']
+	wordList=['kibble','zurek']
+	wordList=['electromagnetically','induced']
+	wordList=['vortex','lattice']
+	for word in wordList:
+		if word.lower() in invDict: N[q] += invDict.get(word);
+		else:
+			N[q] = 0
+			break;
 
-print(N)
 quarters=np.arange(len(N))
 years=quarters/4.+1992
 NRecQuarter[NRecQuarter==0]=0.1
