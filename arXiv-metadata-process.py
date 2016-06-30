@@ -129,8 +129,11 @@ print('\n')
 #################################################################################################
 #################################################################################################
 ## Pickle?
-with open('obj/'+ 'topWords' + '.pkl', 'wb') as f:
-	pickle.dump(topWords, f, pickle.HIGHEST_PROTOCOL)
+## Pickle?
+#with open('obj/'+ 'NRecQuarter' + '.pkl', 'wb') as f:
+	#pickle.dump(NRecQuarter, f, pickle.HIGHEST_PROTOCOL)
+#with open('obj/'+ 'topWords' + '.pkl', 'wb') as f:
+	#pickle.dump(topWords, f, pickle.HIGHEST_PROTOCOL)
 
 #################################################################################################
 #################################################################################################

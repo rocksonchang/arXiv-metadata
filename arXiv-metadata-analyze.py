@@ -25,7 +25,9 @@ The metadata consists of the following entries:
 
 import time
 import pickle
-import pyplot as plt
+from math import ceil
+import matplotlib.pyplot as plt
+import numpy as np
 ## handling of non-ascii characters in the database
 # http://chase-seibert.github.io/blog/2014/01/12/python-unicode-console-output.html
 import sys
@@ -38,20 +40,20 @@ print('\n')
 #################################################################################################
 #################################################################################################
 ## Pickle?
-#with open('obj/'+ 'topWords' + '.pkl', 'wb') as f:
-#	pickle.dump(topWords, f, pickle.HIGHEST_PROTOCOL)
+NRecQuarter = pickle.load( open( "obj/NRecQuarter.pkl", "rb" ) )
 topWords = pickle.load( open( "obj/topWords.pkl", "rb" ) )
 
 #################################################################################################
 #################################################################################################
 ## Word counting
+year0=1992
 print ('Tracking occurance of a particular word...')
 N=[0]*len(topWords)
 for q in range(len(topWords)):
 	year  = year0  + int(ceil((q+1.)/4)-1)
 	print('Year: {}; Quarter: Q{}; Num. entries: {}').format(year, q%4+1, NRecQuarter[q])
 	topWordsquarter=topWords[q]
-	for s in topWordsquarter[:10]: print(str(s))	
+	for s in topWordsquarter[-10:-1]: print(str(s))	
 
 	# topWordsquarter is a list of tuples [(key, value)..]
 	# need to reverse, then build dictionary
@@ -60,11 +62,21 @@ for q in range(len(topWords)):
 		topWordsquarterReversed.append(tuple(reversed(t)))	
 	invDict=dict(topWordsquarterReversed)
 		
-	word='mechanics'.lower()
+	word='engineering'.lower()	
 	if word in invDict: N[q] = invDict.get(word); 
 	else: N[q]=0
 	
 	print('\n')	
 
 print(N)
+quarters=np.arange(len(N))
+years=quarters/4.+1992
+NRecQuarter[NRecQuarter==0]=0.1
 
+plt.subplot(211)
+plt.plot(years,N)
+plt.plot(years,NRecQuarter)
+plt.title('Search: {}'.format(word))
+plt.subplot(212)
+plt.plot(years,np.asarray(N)/np.asarray(NRecQuarter))
+plt.show()
