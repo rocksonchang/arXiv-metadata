@@ -66,9 +66,37 @@ for q in range(len(topWords)):
 	#if word in invDict: N[q] = invDict.get(word); 
 	#else: N[q]=0
 	wordList=['bose','einstein','condensate']
+	wordList=['ultracold']
+	
+
+	wordList=['laser']
+	wordList=['degenerate','fermi','gas']
+
+	wordList=['qubit']
+	wordList=['hadamard','gate']
+	wordList=['error','correction']	
+	wordList=['information','processing']
+	wordList=['teleportation']
+
+	wordList=['electromagnetically','induced']
+	wordList=['rydberg','blockade']
+	word='rydberg blockade'
+	
+
+	#wordList=['anderson','localization']
+	#wordList=['topological','insulator']
+	#wordList=['synthetic','magnetic','field']	
+
+	#wordList=['single','site','microscope']
+	'''
+	wordList=['synthetic','magnetic','field']
+	wordList=['kibble','zurek']
+	wordList=['polar','molecule']
+	
 	wordList=['synthetic','magnetic','field']
 	wordList=['bose','hubbard']
 	wordList=['degenerate','fermi','gas']
+	
 	wordList=['feshbach','resonance']
 	wordList=['trapped', 'ions']
 	wordList=['single','site','microscope']
@@ -78,20 +106,41 @@ for q in range(len(topWords)):
 	wordList=['kibble','zurek']
 	wordList=['electromagnetically','induced']
 	wordList=['vortex','lattice']
+	'''
+
+	wordList=word.split()
 	for word in wordList:
 		if word.lower() in invDict: N[q] += invDict.get(word);
 		else:
 			N[q] = 0
 			break;
+		N[q]=N[q]/len(wordList)
 
 quarters=np.arange(len(N))
-years=quarters/4.+1992
-NRecQuarter[NRecQuarter==0]=0.1
+x=quarters/4.+1992
 
-plt.subplot(211)
-plt.plot(years,N)
-plt.plot(years,NRecQuarter)
+NRecQuarter=np.asarray(NRecQuarter,dtype=np.float32)
+NRecQuarter[np.where(NRecQuarter == 0)[0]]=0.1
+
+fig=plt.figure(figsize=(14,5))
+plt.subplot(121)
+plt.plot(x,N)
+plt.plot(x,NRecQuarter)
 plt.title('Search: {}'.format(word))
-plt.subplot(212)
-plt.plot(years,np.asarray(N)/np.asarray(NRecQuarter))
+
+plt.subplot(122)
+y=np.asarray(N)/NRecQuarter
+plt.bar(x,y,0.25,color='b')
+N=11
+ySmooth=np.convolve(y, np.ones((N,))/N, mode='same')
+plt.plot(x,ySmooth,'r-',linewidth=4)
 plt.show()
+
+'''
+N2=[0]*(len(N)/4)
+NRecQuarter2=[0]*(len(NRecQuarter)/4)
+for i in range(len(years)/4): 
+	N2[i]=np.sum(N[(0+4*i):(4+4*i)])
+	NRecQuarter2[i]=np.sum(NRecQuarter[(0+4*i):(4+4*i)])	
+years2=np.arange(len(years)/4)+1992
+'''
