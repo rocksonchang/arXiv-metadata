@@ -80,8 +80,23 @@ for q in range(len(topWords)):
 
 	wordList=['electromagnetically','induced']
 	wordList=['rydberg','blockade']
-	word='rydberg blockade'
 	
+	word='bose einstein condensate'
+	word='bloch oscillation'
+	word='photon'
+	word='feshbach resonance'
+	word='rydberg blockade'
+
+	word='bose hubbard'
+	word='fermi hubbard'
+	word='phase transition'
+
+	word='qubit'
+	word='qutrit'
+
+	word='photon teleportation'
+
+
 
 	#wordList=['anderson','localization']
 	#wordList=['topological','insulator']

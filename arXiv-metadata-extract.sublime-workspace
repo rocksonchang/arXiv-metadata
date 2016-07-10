@@ -55,7 +55,7 @@
 			"file": "arXiv-metadata-analyze.py",
 			"settings":
 			{
-				"buffer_size": 3308,
+				"buffer_size": 4624,
 				"line_ending": "Windows"
 			}
 		},
@@ -299,10 +299,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 670.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -357,10 +357,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 966.0,
+						"translation.y": 126.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -369,15 +369,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3308,
+						"buffer_size": 4624,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2923,
-								2930
+								3078,
+								3078
 							]
 						],
 						"settings":
@@ -386,7 +386,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 554.0,
+						"translation.y": 1134.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -416,7 +416,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1008.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
