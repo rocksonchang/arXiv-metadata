@@ -1,4 +1,8 @@
 # Science Trends
+The code for this project is broken up into two repos:
+* [arXiv-metadata](https://github.com/rocksonchang/arXiv-metadata) contains the code to pull data from the arXiv, and perform some pre-processing.
+* [Science-Trends](https://github.com/rocksonchang/Science-Trends) contains the code to build bag-of-word and matrix factorization models.
+---
 
 As a researcher (both in physics and data science), a portion of my job description is to stay abreast of current trends in the field. With the volumes of papers published each year, it becomes nearly a full-time job to just keep up with my own domain, let alone beyond. Indeed, the [rate of article submission to the arXiv](https://arxiv.org/help/stats/2015_by_area/index) has continually grown since its launch in 1996. In the quantum physics sub-repository, over 5000 submissions were received in 2015 alone. 
 
@@ -24,7 +28,7 @@ rawData = urllib.urlopen(url).read()
 ```
 The above call will return up to 1000 results at a time. A resumption token is provided at the end of the return if there are more than 1000 records available. This makes it possible to process large requests.
 ```python
-url = 'http://export.arxiv.org/oai2?verb=ListRecords&resumptionToken={}'.format(token)  
+url = 'http://export.arxiv.org/oai2?verb=ListRecords&resumptionToken={}'.format(token) 
 ```
 The data I focus on here is the article title, abstract and the date of submission. The text data is cleaned up a bit by removing non alpha numeric characters (such as latex code) and common stopwords. These operations are performed using `obo`; many other packages do the same thing, for example NLTK.
 ```python
@@ -37,7 +41,7 @@ The cleaned text is a document, and the complete collection of documents is refe
 
 
 ## Approach 1: Word frequency analysis
-A simple approach to extracting trends from the data is to simply look at the frequency of keywords as a function of time.  To obtain time-dynamics, the data is grouped into quarterly blocks (3 months), and the most frequently occurring words in each quarter are identified. Here I choose to keep only the top 5000 words.
+A simple approach to extracting trends from the data is to simply look at the frequency of keywords as a function of time. To obtain time-dynamics, the data is grouped into quarterly blocks (3 months), and the most frequently occurring words in each quarter are identified. Here I choose to keep only the top 5000 words.
 ```python
 doc_dictionary = obo.wordListToFreqDict(doc)
 doc_sorteddict = obo.sortFreqDict(doc_dictionary)
