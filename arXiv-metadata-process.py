@@ -59,10 +59,7 @@ for x in range(len(years)):
 	data = minidom.parse(fname)		
 	for rec in data.getElementsByTagName('record'):			
 		NRecYear[x]+=1
-		## extract data
-		#t_creators=()
-		#for c in rec.getElementsByTagName("dc:creator"):			
-		#t_creators=t_creators+(c.firstChild.data,)
+		## extract data		
 		rec_dates=[]
 		for d in rec.getElementsByTagName("date"):
 			rec_dates.append(d.firstChild.data)		
@@ -72,16 +69,13 @@ for x in range(len(years)):
 			
 		#print(rec.getElementsByTagName("dc:title")[0].firstChild.data)			
 
-		## append data from this record into a larger running array across all blocks
-		#creators.append(t_creators)
+		## append data from this record into a larger running array across all blocks		
 		addys.append(rec.getElementsByTagName("identifier")[0].firstChild.data)
 		titles.append(rec.getElementsByTagName("title")[0].firstChild.data)
 		descriptions.append(rec.getElementsByTagName("description")[0].firstChild.data)
 		dates.append(rec_dates[0]) # take date first submitted as date.
 	print ('Loading year: {}; Num. entries: {}'.format(years[x],NRecYear[x]))
 ## output some stuff to check	
-#print('\n')		
-#for i in range(len(titles)): print(titles[i]);	print(dates[i]); print(descriptions[i]); print('\n');
 print('\n')
 
 #################################################################################################

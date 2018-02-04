@@ -97,32 +97,6 @@ for q in range(len(topWords)):
 	word='photon teleportation'
 
 
-
-	#wordList=['anderson','localization']
-	#wordList=['topological','insulator']
-	#wordList=['synthetic','magnetic','field']	
-
-	#wordList=['single','site','microscope']
-	'''
-	wordList=['synthetic','magnetic','field']
-	wordList=['kibble','zurek']
-	wordList=['polar','molecule']
-	
-	wordList=['synthetic','magnetic','field']
-	wordList=['bose','hubbard']
-	wordList=['degenerate','fermi','gas']
-	
-	wordList=['feshbach','resonance']
-	wordList=['trapped', 'ions']
-	wordList=['single','site','microscope']
-	wordList=['anderson','localization']
-	wordList=['bloch','oscillation']
-	wordList=['phase','transition']
-	wordList=['kibble','zurek']
-	wordList=['electromagnetically','induced']
-	wordList=['vortex','lattice']
-	'''
-
 	wordList=word.split()
 	for word in wordList:
 		if word.lower() in invDict: N[q] += invDict.get(word);
@@ -151,11 +125,3 @@ ySmooth=np.convolve(y, np.ones((N,))/N, mode='same')
 plt.plot(x,ySmooth,'r-',linewidth=4)
 plt.show()
 
-'''
-N2=[0]*(len(N)/4)
-NRecQuarter2=[0]*(len(NRecQuarter)/4)
-for i in range(len(years)/4): 
-	N2[i]=np.sum(N[(0+4*i):(4+4*i)])
-	NRecQuarter2[i]=np.sum(NRecQuarter[(0+4*i):(4+4*i)])	
-years2=np.arange(len(years)/4)+1992
-'''

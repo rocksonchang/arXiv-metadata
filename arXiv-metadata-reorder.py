@@ -40,7 +40,7 @@ sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 myListofTuples=[]
 ## Run through raw data blocks
 for block in range(1,5):
-	fname ='arXiv-meta-block{}.xml'.format(block)
+	fname ='data/arXiv-meta-block{}.xml'.format(block)
 	#################################################################################################
 	#################################################################################################
 	## parse XML data
